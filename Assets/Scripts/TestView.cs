@@ -20,11 +20,15 @@ public class TestView : MonoBehaviour
     [SerializeField]
     public Camera m_camera = null;
 
+    [SerializeField]
+    public GameObject m_modelPrefab = null;
+
     private Transform m_pageRoot = null;
     private Transform[] m_pageList = new Transform[4];
     private UnityEngine.UI.Button[] m_buttonLeftList = null;
     private UnityEngine.UI.Button[] m_buttonRightList = null;
     private Dictionary<int, UnityEngine.UI.Button[]> m_dicButtonList = new Dictionary<int, UnityEngine.UI.Button[]>();
+    private Dictionary<int, bool> m_buttonFlagDic = new Dictionary<int, bool>();
     private UnityEngine.UI.Button m_nextButton = null;
     private UnityEngine.UI.Button m_prevButton = null;
     private bool[] m_buttonLeftFlagList = new bool[4];
@@ -35,6 +39,8 @@ public class TestView : MonoBehaviour
     private float m_transitionTimer = 0.0f;
     private eSeq m_page = 0;
     private eSeq m_pagePrev = 0;
+    private bool m_test = false;
+    private GameObject m_modelObject = null;
 
     private void Start()
     {
@@ -85,6 +91,13 @@ public class TestView : MonoBehaviour
         */
         if (m_seq == eSeq.First)
         {
+            if (m_test)
+            {
+                if (!m_modelObject)
+                {
+                    m_modelObject = GameObject.Instantiate(m_modelPrefab, new Vector3(0.0f, 0.0f, 1.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
+                }
+            }
             if (m_nextButtonFlag)
             {
                 NextPageProc();
@@ -138,6 +151,7 @@ public class TestView : MonoBehaviour
         }
         m_nextButtonFlag = false;
         m_prevButtonFlag = false;
+        m_test = false;
     }
 
     private void NextPageProc()
@@ -158,7 +172,7 @@ public class TestView : MonoBehaviour
 
     public void OnPage1LeftClick00()
     {
-
+        m_test = true;
     }
 
     public void OnPage1LeftClick01()
