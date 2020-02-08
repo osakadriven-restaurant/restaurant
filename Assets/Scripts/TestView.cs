@@ -33,8 +33,8 @@ public class TestView : MonoBehaviour
     private float m_transitionTimer = 0.0f;
     private Transform m_nowTarget = null;
     private Transform m_nextTarget = null;
-    private int m_page = 0;
-    private int m_pagePrev = 0;
+    private eSeq m_page = 0;
+    private eSeq m_pagePrev = 0;
 
     private void Start()
     {
@@ -78,37 +78,25 @@ public class TestView : MonoBehaviour
         {
             if (m_nextButtonFlag)
             {
-                m_seq = eSeq.Transition;
-                m_transitonToSeq = eSeq.Second;
-                m_pagePrev = 0;
-                m_page = 1;
+                NextPageProc();
             }
         }
         else if (m_seq == eSeq.Second)
         {
             if (m_nextButtonFlag)
             {
-                m_seq = eSeq.Transition;
-                m_transitonToSeq = eSeq.Theird;
-                m_pagePrev = 1;
-                m_page = 2;
+                NextPageProc();
             }
             if (m_prevButtonFlag)
             {
-                m_seq = eSeq.Transition;
-                m_transitonToSeq = eSeq.First;
-                m_pagePrev = 1;
-                m_page = 0;
+                PrevPageProc();
             }
         }
         else if (m_seq == eSeq.Theird)
         {
             if (m_prevButtonFlag)
             {
-                m_seq = eSeq.Transition;
-                m_transitonToSeq = eSeq.Second;
-                m_pagePrev = 2;
-                m_page = 1;
+                PrevPageProc();
             }
         }
         else if (m_seq == eSeq.Transition)
@@ -124,11 +112,11 @@ public class TestView : MonoBehaviour
             }
             if (m_page > m_pagePrev)
             {
-                m_pageRoot.localPosition = new Vector3(rate * -600.0f + m_pagePrev * -600.0f, 0.0f, 0.0f);
+                m_pageRoot.localPosition = new Vector3(rate * -600.0f + (int)m_pagePrev * -600.0f, 0.0f, 0.0f);
             }
             else if (m_page < m_pagePrev)
             {
-                m_pageRoot.localPosition = new Vector3((1.0f - rate) * -600.0f + m_page * -600.0f, 0.0f, 0.0f);
+                m_pageRoot.localPosition = new Vector3((1.0f - rate) * -600.0f + (int)m_page * -600.0f, 0.0f, 0.0f);
             }
         }
         for (int i = 0; i < m_buttonLeftFlagList.Length; ++i)
@@ -137,6 +125,22 @@ public class TestView : MonoBehaviour
         }
         m_nextButtonFlag = false;
         m_prevButtonFlag = false;
+    }
+
+    private void NextPageProc()
+    {
+        m_transitonToSeq = m_seq + 1;
+        m_seq = eSeq.Transition;
+        m_pagePrev = m_transitonToSeq - 1;
+        m_page = m_transitonToSeq;
+    }
+
+    private void PrevPageProc()
+    {
+        m_transitonToSeq = m_seq - 1;
+        m_seq = eSeq.Transition;
+        m_pagePrev = m_transitonToSeq + 1;
+        m_page = m_transitonToSeq;
     }
 
     public void OnPage1LeftClick00()
