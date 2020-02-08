@@ -41,6 +41,15 @@ public class TestView : MonoBehaviour
         m_pageRoot = this.transform.Find("Root");
         m_pageList[0] = this.transform.Find("Root/Page01");
         m_pageList[1] = this.transform.Find("Root/Page02");
+        m_pageList[2] = this.transform.Find("Root/Page03");
+        for (int i = 0; i < m_pageList.Length; ++i)
+        {
+            if (m_pageList[i])
+            {
+                m_pageList[i].gameObject.AddComponent<UnityEngine.CanvasGroup>().alpha = 0.0f;
+            }
+        }
+        m_pageList[0].gameObject.GetComponent<UnityEngine.CanvasGroup>().alpha = 1.0f;
         m_buttonLeftList = m_pageList[0].Find("ScrollViewLeft").GetComponentsInChildren<UnityEngine.UI.Button>();
         m_buttonRightList = m_pageList[0].Find("ScrollViewRight").GetComponentsInChildren<UnityEngine.UI.Button>();
         m_nextButton = this.transform.Find("NextButton").GetComponent<UnityEngine.UI.Button>();
@@ -101,7 +110,7 @@ public class TestView : MonoBehaviour
         }
         else if (m_seq == eSeq.Transition)
         {
-            float time = 0.5f;
+            float time = 0.25f;
             m_transitionTimer += Time.deltaTime;
             float rate = m_transitionTimer / time;
             if (m_transitionTimer > time)
@@ -112,10 +121,14 @@ public class TestView : MonoBehaviour
             }
             if (m_page > m_pagePrev)
             {
+                m_pageList[(int)m_page].GetComponent<UnityEngine.CanvasGroup>().alpha = rate;
+                m_pageList[(int)m_pagePrev].GetComponent<UnityEngine.CanvasGroup>().alpha = (1.0f - rate);
                 m_pageRoot.localPosition = new Vector3(rate * -600.0f + (int)m_pagePrev * -600.0f, 0.0f, 0.0f);
             }
             else if (m_page < m_pagePrev)
             {
+                m_pageList[(int)m_page].GetComponent<UnityEngine.CanvasGroup>().alpha = rate;
+                m_pageList[(int)m_pagePrev].GetComponent<UnityEngine.CanvasGroup>().alpha = (1.0f - rate);
                 m_pageRoot.localPosition = new Vector3((1.0f - rate) * -600.0f + (int)m_page * -600.0f, 0.0f, 0.0f);
             }
         }
