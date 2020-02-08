@@ -11,8 +11,21 @@ public class TestView : MonoBehaviour
     [SerializeField]
     public Camera m_camera = null;
 
+    private UnityEngine.UI.Button[] m_buttonLeftList = null;
+    private UnityEngine.UI.Button[] m_buttonRightList = null;
+
+    private void Start()
+    {
+        Transform left = this.transform.Find("ScrollViewLeft");
+        Transform right = this.transform.Find("ScrollViewRight");
+        m_buttonLeftList = left.GetComponents<UnityEngine.UI.Button>();
+        m_buttonRightList = right.GetComponents<UnityEngine.UI.Button>();
+        //m_buttonLeftList[0].onClick 
+    }
+
     private void Update()
     {
+        /*
         // カメラの方向から、X-Z平面の単位ベクトルを取得
         Vector3 cameraForward = Vector3.Scale(m_camera.transform.forward, new Vector3(1, 1, 1)).normalized;
 
@@ -26,5 +39,6 @@ public class TestView : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
+        */
     }
 }
