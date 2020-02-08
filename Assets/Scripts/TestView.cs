@@ -4,6 +4,7 @@
 using Microsoft.MixedReality.Toolkit.Utilities;
 using System.Text;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.Profiling;
 
 public class TestView : MonoBehaviour
@@ -23,6 +24,7 @@ public class TestView : MonoBehaviour
     private Transform[] m_pageList = new Transform[4];
     private UnityEngine.UI.Button[] m_buttonLeftList = null;
     private UnityEngine.UI.Button[] m_buttonRightList = null;
+    private Dictionary<int, UnityEngine.UI.Button[]> m_dicButtonList = new Dictionary<int, UnityEngine.UI.Button[]>();
     private UnityEngine.UI.Button m_nextButton = null;
     private UnityEngine.UI.Button m_prevButton = null;
     private bool[] m_buttonLeftFlagList = new bool[4];
@@ -31,8 +33,6 @@ public class TestView : MonoBehaviour
     private eSeq m_seq = eSeq.First;
     private eSeq m_transitonToSeq = eSeq.First;
     private float m_transitionTimer = 0.0f;
-    private Transform m_nowTarget = null;
-    private Transform m_nextTarget = null;
     private eSeq m_page = 0;
     private eSeq m_pagePrev = 0;
 
