@@ -1604,41 +1604,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957703712782412376, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6123874035371314275, guid: 655521c3560b40f40b75cd30857eae84,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1688,11 +1653,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9207564764344351982, guid: 655521c3560b40f40b75cd30857eae84,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6043149731051888546, guid: 655521c3560b40f40b75cd30857eae84,
         type: 3}
