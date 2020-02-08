@@ -7,8 +7,10 @@ public class MoveArrow : MonoBehaviour
     double BaseLatitude = 2;
     double BaseLongitude = 1;
 
-    double DestinationLatitude = -5;
-    double DestinationLongitude = -6;
+    double DestinationLatitude = -30;
+    double DestinationLongitude = 10;
+
+    public GameObject hololensCamera;
 
     RectTransform rect;
 
@@ -31,6 +33,7 @@ public class MoveArrow : MonoBehaviour
 
     private void Update()
     {
+        SetHumanPosition(hololensCamera.transform.position.z, hololensCamera.transform.position.x);
         var direc = new Vector2((float)(DestinationLongitude - BaseLongitude), (float)(DestinationLatitude - BaseLatitude));
         float theta = Mathf.Acos(direc.x / direc.magnitude);
         rect.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * theta);
