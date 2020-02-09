@@ -15,6 +15,7 @@ public class TestView : MonoBehaviour
         First,
         Second,
         Theird,
+        Four,
         Transition,
     }
 
@@ -54,6 +55,7 @@ public class TestView : MonoBehaviour
         m_pageList[0] = this.transform.Find("Root/Page01");
         m_pageList[1] = this.transform.Find("Root/Page02");
         m_pageList[2] = this.transform.Find("Root/Page03");
+        m_pageList[3] = this.transform.Find("Root/Page04");
         for (int i = 0; i < m_pageList.Length; ++i)
         {
             if (m_pageList[i])
@@ -95,6 +97,11 @@ public class TestView : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(moveForward);
         }
         */
+        if (Input.GetKey(KeyCode.A))
+        {
+            m_nextButtonFlag = true;
+            Debug.Log("a");
+        }
         if (m_seq == eSeq.First)
         {
             if (m_test)
@@ -120,6 +127,18 @@ public class TestView : MonoBehaviour
             }
         }
         else if (m_seq == eSeq.Theird)
+        {
+            if (m_nextButtonFlag)
+            {
+                NextPageProc();
+            }
+            if (m_prevButtonFlag)
+            {
+                PrevPageProc();
+            }
+            m_initFlag = false;
+        }
+        else if (m_seq == eSeq.Four)
         {
             if (m_initFlag)
             {
