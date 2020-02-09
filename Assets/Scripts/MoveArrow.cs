@@ -12,6 +12,8 @@ public class MoveArrow : MonoBehaviour
 
     public GameObject hololensCamera;
 
+    public TestView clsTestView;
+
     RectTransform rect;
 
     private void Start()
@@ -34,6 +36,12 @@ public class MoveArrow : MonoBehaviour
     private void Update()
     {
         SetHumanPosition(hololensCamera.transform.position.z, hololensCamera.transform.position.x);
+
+        if (clsTestView.m_humanObject != null)
+        {
+            SetDestination(clsTestView.m_humanObject.transform.position.z, clsTestView.m_humanObject.transform.position.x);
+        }
+
         var direc = new Vector2((float)(DestinationLongitude - BaseLongitude), (float)(DestinationLatitude - BaseLatitude));
         float theta = Mathf.Acos(direc.x / direc.magnitude);
         rect.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * theta);
