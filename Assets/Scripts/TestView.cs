@@ -46,7 +46,7 @@ public class TestView : MonoBehaviour
     private eSeq m_pagePrev = 0;
     private bool m_test = false;
     private GameObject m_modelObject = null;
-    private GameObject m_humanObject = null;
+    public GameObject m_humanObject = null;
     private bool m_initFlag = false;
 
     private void Start()
@@ -106,7 +106,7 @@ public class TestView : MonoBehaviour
         {
             if (m_test)
             {
-                m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
+                m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(11.26f, 0.0f, 20.77f), Quaternion.Euler(Vector3.zero), this.transform.parent);
                 m_humanObject.transform.localPosition = Vector3.zero;
                 StartCoroutine(coAnimation(m_humanObject.GetComponent<Animator>(), new Vector3(1.0f, 0.0f, 1.0f).normalized, new Vector3(4.0f, 0.0f, 4.0f)));
             }

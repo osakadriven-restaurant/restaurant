@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj": {}
+    "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj": {
+    "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj",
         "projectName": "DotNetAdapter",
-        "projectPath": "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj",
-        "packagesPath": "C:\\Users\\mame\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\.obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\DotNetAdapter.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\.obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mame\\Desktop\\Hololens2\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\NuGet.Config",
-          "C:\\Users\\mame\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\Documents\\hackson\\restaurant\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\DotNetAdapter\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net46"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -27,7 +27,7 @@
           "https://pkgs.dev.azure.com/UnityDeveloperTools/MSBuildForUnity/_packaging/UnityDeveloperTools/nuget/v3/index.json": {}
         },
         "frameworks": {
-          "net46": {
+          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -38,7 +38,7 @@
         }
       },
       "frameworks": {
-        "net46": {
+        "netstandard2.0": {
           "dependencies": {
             "MSBuildForUnity": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -49,8 +49,24 @@
             "Microsoft.Windows.MixedReality.DotNetWinRT": {
               "target": "Package",
               "version": "[0.5.*, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
