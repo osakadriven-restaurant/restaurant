@@ -232,6 +232,7 @@ MonoBehaviour:
   m_camera: {fileID: 911672743}
   m_modelPrefab: {fileID: 2005659346737685196, guid: 53eb1a6df0e4fb348aaa6ce4edde1671,
     type: 3}
+  m_humanPrefab: {fileID: 100264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
 --- !u!1 &318019435
 GameObject:
   m_ObjectHideFlags: 0
