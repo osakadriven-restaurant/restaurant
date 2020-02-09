@@ -47,7 +47,7 @@ public class MoveArrow : MonoBehaviour
         rect.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * theta);
         if(direc.y < 0)
         {
-            rect.rotation = Quaternion.Euler(0, 0, -Mathf.Rad2Deg * theta);
+            rect.rotation = Quaternion.Euler(hololensCamera.transform.eulerAngles.x, hololensCamera.transform.eulerAngles.y, -Mathf.Rad2Deg * theta);
         }
     }
 }
