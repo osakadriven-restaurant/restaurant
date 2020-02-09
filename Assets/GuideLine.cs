@@ -11,11 +11,6 @@ public class GuideLine : MonoBehaviour
     void Start()
     {
         this.clsLineRenderer = GetComponent<LineRenderer>();
-
-        this.clsLineRenderer.startWidth = 0.1f;
-        this.clsLineRenderer.endWidth = 0.1f;
-
-        this.clsLineRenderer.positionCount = 2;
     }
 
     // Update is called once per frame
@@ -23,6 +18,13 @@ public class GuideLine : MonoBehaviour
     {
         if (clsTestView.m_humanObject != null)
         {
+
+            this.clsLineRenderer.enabled = true;
+
+            this.clsLineRenderer.startWidth = 0.1f;
+            this.clsLineRenderer.endWidth = 0.1f;
+
+            this.clsLineRenderer.positionCount = 2;
             // 開始
             clsLineRenderer.SetPosition(0, hololensCamera.transform.position);
             // 終了（Unityちゃん）
