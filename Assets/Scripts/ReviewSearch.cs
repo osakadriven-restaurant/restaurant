@@ -12,7 +12,7 @@ using UnityEngine.Networking;
 /// OnReviewGotに適当な関数を指定するとデータを取得した時点で呼ばれる
 /// 呼ばれた後にはCommentsを参照すればコメントを取得できる
 /// </summary>
-public class ReviewSearcher : MonoBehaviour
+public class ReviewSearch : MonoBehaviour
 {
 
     public static List<string> Comments;
