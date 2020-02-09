@@ -7,8 +7,8 @@ public class MoveArrow : MonoBehaviour
     double BaseLatitude = 2;
     double BaseLongitude = 1;
 
-    double DestinationLatitude = -30;
-    double DestinationLongitude = 10;
+    double DestinationLatitude = 20.77f;
+    double DestinationLongitude = 11.26f;
 
     public GameObject hololensCamera;
 
