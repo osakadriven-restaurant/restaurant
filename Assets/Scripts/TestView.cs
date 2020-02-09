@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Profiling;
+using System.Collections;
 
 public class TestView : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class TestView : MonoBehaviour
 
     [SerializeField]
     public GameObject m_modelPrefab = null;
+
+    [SerializeField]
+    public GameObject m_humanPrefab = null;
 
     private Transform m_pageRoot = null;
     private Transform[] m_pageList = new Transform[4];
@@ -41,6 +45,8 @@ public class TestView : MonoBehaviour
     private eSeq m_pagePrev = 0;
     private bool m_test = false;
     private GameObject m_modelObject = null;
+    private GameObject m_humanObject = null;
+    private bool m_initFlag = false;
 
     private void Start()
     {
@@ -97,6 +103,9 @@ public class TestView : MonoBehaviour
                 {
                     m_modelObject = GameObject.Instantiate(m_modelPrefab, new Vector3(0.0f, 0.0f, 1.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
                 }
+                m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
+                m_humanObject.transform.localPosition = Vector3.zero;
+                StartCoroutine(coAnimation(m_humanObject.GetComponent<Animator>(), new Vector3(1.0f, 0.0f, 1.0f).normalized));
             }
             if (m_nextButtonFlag)
             {
@@ -116,10 +125,18 @@ public class TestView : MonoBehaviour
         }
         else if (m_seq == eSeq.Theird)
         {
+            if (m_initFlag)
+            {
+                if (!m_humanPrefab)
+                {
+                    m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
+                }
+            }
             if (m_prevButtonFlag)
             {
                 PrevPageProc();
             }
+            m_initFlag = false;
         }
         else if (m_seq == eSeq.Transition)
         {
@@ -131,6 +148,7 @@ public class TestView : MonoBehaviour
                 rate = 1.0f;
                 m_seq = m_transitonToSeq;
                 m_transitionTimer = 0.0f;
+                m_initFlag = true;
             }
             if (m_page > m_pagePrev)
             {
@@ -152,6 +170,20 @@ public class TestView : MonoBehaviour
         m_nextButtonFlag = false;
         m_prevButtonFlag = false;
         m_test = false;
+    }
+
+    IEnumerator coAnimation(Animator anim, Vector3 dir)
+    {
+        yield return null;
+        anim.SetBool("Next", true);
+        yield return null;
+        anim.SetBool("Next", false);
+        while(true)
+        {
+            anim.transform.localPosition += dir * 0.001f;
+            anim.transform.localRotation = Quaternion.LookRotation(dir);
+            yield return null;
+        }
     }
 
     private void NextPageProc()
