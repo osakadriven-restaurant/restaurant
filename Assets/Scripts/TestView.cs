@@ -99,13 +99,9 @@ public class TestView : MonoBehaviour
         {
             if (m_test)
             {
-                if (!m_modelObject)
-                {
-                    m_modelObject = GameObject.Instantiate(m_modelPrefab, new Vector3(0.0f, 0.0f, 1.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
-                }
                 m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
                 m_humanObject.transform.localPosition = Vector3.zero;
-                StartCoroutine(coAnimation(m_humanObject.GetComponent<Animator>(), new Vector3(1.0f, 0.0f, 1.0f).normalized));
+                StartCoroutine(coAnimation(m_humanObject.GetComponent<Animator>(), new Vector3(1.0f, 0.0f, 1.0f).normalized, new Vector3(4.0f, 0.0f, 4.0f)));
             }
             if (m_nextButtonFlag)
             {
@@ -127,10 +123,6 @@ public class TestView : MonoBehaviour
         {
             if (m_initFlag)
             {
-                if (!m_humanPrefab)
-                {
-                    m_humanObject = GameObject.Instantiate(m_humanPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
-                }
             }
             if (m_prevButtonFlag)
             {
@@ -172,7 +164,7 @@ public class TestView : MonoBehaviour
         m_test = false;
     }
 
-    IEnumerator coAnimation(Animator anim, Vector3 dir)
+    IEnumerator coAnimation(Animator anim, Vector3 dir, Vector3 target)
     {
         yield return null;
         anim.SetBool("Next", true);
@@ -182,7 +174,17 @@ public class TestView : MonoBehaviour
         {
             anim.transform.localPosition += dir * 0.001f;
             anim.transform.localRotation = Quaternion.LookRotation(dir);
+            if (Vector3.Distance(anim.transform.localPosition, target) < 1.0f)
+            {
+                break;
+            }
             yield return null;
+        }
+        anim.SetBool("Back", true);
+        if (!m_modelObject)
+        {
+            m_modelObject = GameObject.Instantiate(m_modelPrefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(Vector3.zero), this.transform.parent);
+            m_modelObject.transform.localPosition = anim.transform.localPosition + new Vector3(0.5f, 0.0f, 0.0f);
         }
     }
 
