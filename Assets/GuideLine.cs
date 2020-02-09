@@ -21,8 +21,8 @@ public class GuideLine : MonoBehaviour
 
             this.clsLineRenderer.enabled = true;
 
-            this.clsLineRenderer.startWidth = 0.1f;
-            this.clsLineRenderer.endWidth = 0.1f;
+            this.clsLineRenderer.startWidth = 0.01f;
+            this.clsLineRenderer.endWidth = 0.001f;
 
             this.clsLineRenderer.positionCount = 2;
             // 開始
