@@ -2,8 +2,13 @@
   <PropertyGroup>
     <MSBuildForUnityVersion>0.8.3</MSBuildForUnityVersion>
     
+<<<<<<< HEAD
     <MSBuildForUnityGeneratedOutputDirectory>C:\Users\user\Documents\hackson\restaurant\MSBuild\Projects</MSBuildForUnityGeneratedOutputDirectory>
     <UnityProjectAssetsPath>C:\Users\user\Documents\hackson\restaurant\Assets</UnityProjectAssetsPath>
+=======
+    <MSBuildForUnityGeneratedOutputDirectory>C:\Develop\Hackson\Restrunts\MSBuild\Projects</MSBuildForUnityGeneratedOutputDirectory>
+    <UnityProjectAssetsPath>C:\Develop\Hackson\Restrunts\Assets</UnityProjectAssetsPath>
+>>>>>>> 91e364f29ea15ca0138d562dc37b7b106ae7f07b
     <MSBuildForUnityDefaultOutputPath>$(UnityProjectAssetsPath)\Dependencies</MSBuildForUnityDefaultOutputPath>
     
     <UnityCurrentPlatform>WindowsStandalone64</UnityCurrentPlatform>

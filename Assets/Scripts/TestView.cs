@@ -45,7 +45,7 @@ public class TestView : MonoBehaviour
     private eSeq m_pagePrev = 0;
     private bool m_test = false;
     private GameObject m_modelObject = null;
-    private GameObject m_humanObject = null;
+    public GameObject m_humanObject = null;
     private bool m_initFlag = false;
 
     private void Start()
